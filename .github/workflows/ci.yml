@@ -19,7 +19,7 @@ jobs:
       DB_PORT: ${{ secrets.DB_PORT }}
     services:
       postgresql_main:
-        image: postgres:12
+        image: postgres:14
         env:
           POSTGRES_DB: ${{ env.DB_NAME }}
           POSTGRES_USER: ${{ env.DB_USER }}
