@@ -1,5 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from django.db.models import Q
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from logistic.models import Product, Stock
 from logistic.serializers import ProductSerializer, StockSerializer
@@ -40,3 +42,8 @@ class StockViewSet(ModelViewSet):
             ).distinct()
         
         return queryset
+
+
+@api_view(['GET'])
+def simple_view(request):
+    return Response({"message": "Hello, world!"})
