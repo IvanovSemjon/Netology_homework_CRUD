@@ -30,7 +30,7 @@ class StockSerializer(serializers.ModelSerializer):
                 stock=stock,
                 product_id=position['product'].id,
                 defaults={
-                    'quantity': position['quantity'], 
+                    'quantity': position['quantity'],
                     'price': position['price']
                 }
             )

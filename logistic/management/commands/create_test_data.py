@@ -46,17 +46,24 @@ class Command(BaseCommand):
         for stock in stocks:
             # Очищаем старые связи
             stock.positions.all().delete()
-            
+
             # Добавляем случайные продукты на каждый склад
-            selected_products = random.sample(products, random.randint(2, 4))
-            
+            selected_products = random.sample(
+                products, random.randint(2, 4)
+            )
+
             for product in selected_products:
+                price = Decimal(str(random.uniform(50, 500))).quantize(
+                    Decimal('0.01')
+                )
                 StockProduct.objects.create(
                     stock=stock,
                     product=product,
                     quantity=random.randint(10, 100),
-                    price=Decimal(str(random.uniform(50, 500))).quantize(Decimal('0.01'))
+                    price=price
                 )
-                self.stdout.write(f'Добавлен {product.title} на {stock.address}')
+                msg = f'Добавлен {product.title} на {stock.address}'
+                self.stdout.write(msg)
 
-        self.stdout.write(self.style.SUCCESS('Тестовые данные успешно созданы!'))
+        success_msg = 'Тестовые данные успешно созданы!'
+        self.stdout.write(self.style.SUCCESS(success_msg))

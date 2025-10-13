@@ -1,6 +1,5 @@
 from django.core.validators import MinValueValidator
 from django.db import models
-import datatime
 
 
 class Product(models.Model):
@@ -34,4 +33,3 @@ class StockProduct(models.Model):
         decimal_places=2,
         validators=[MinValueValidator(0)],
     )
-    
