@@ -16,7 +16,8 @@ class ProductViewSet(ModelViewSet):
         search_query = self.request.query_params.get('search')
         if search_query:
             queryset = queryset.filter(
-                Q(title__icontains=search_query) | Q(description__icontains=search_query)
+                Q(title__icontains=search_query) |
+                Q(description__icontains=search_query)
             )
         return queryset
 

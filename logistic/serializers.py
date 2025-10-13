@@ -38,12 +38,12 @@ class StockSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         positions_data = validated_data.pop('positions', [])
-        
+
         instance.address = validated_data.get('address', instance.address)
         instance.save()
-        
+
         instance.positions.all().delete()
-        
+
         for position_data in positions_data:
             StockProduct.objects.create(
                 stock=instance,
@@ -51,5 +51,5 @@ class StockSerializer(serializers.ModelSerializer):
                 quantity=position_data['quantity'],
                 price=position_data['price']
             )
-        
+
         return instance

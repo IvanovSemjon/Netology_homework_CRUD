@@ -21,7 +21,9 @@ class StockAPITest(APITestCase):
         product = Product.objects.create(title='Test Product')
         data = {
             'address': 'Test Address',
-            'positions': [{'product': product.id, 'quantity': 10, 'price': '100.00'}]
+            'positions': [
+                {'product': product.id, 'quantity': 10, 'price': '100.00'}
+            ]
         }
         response = self.client.post('/api/v1/stocks/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
