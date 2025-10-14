@@ -67,4 +67,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          scripts: expect /home/ivanovsemjon/Netology_homework_CRUD/deploy.exp
+          script: expect /home/ivanovsemjon/Netology_homework_CRUD/deploy.exp
