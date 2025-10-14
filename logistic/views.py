@@ -47,4 +47,4 @@ class StockViewSet(ModelViewSet):
 
 @api_view(['GET'])
 def simple_view(request):
-    return Response({"message": "Hello, world_new_message!!!!"})
+    return Response({"message": "Hello, world! How are you ?"})
