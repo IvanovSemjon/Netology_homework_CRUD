@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 
 from logistic.views import ProductViewSet, StockViewSet, simple_view
 
+
 @api_view(['GET'])
 def api_root(request):
     return Response({
@@ -12,6 +13,7 @@ def api_root(request):
         'stocks': request.build_absolute_uri('stocks/'),
         'simple': request.build_absolute_uri('simple/'),
     })
+
 
 router = DefaultRouter()
 router.register('products', ProductViewSet)
