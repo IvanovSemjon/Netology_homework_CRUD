@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.shortcuts import redirect
+
+def home_redirect(request):
+    return redirect('/api/v1/')
 
 urlpatterns = [
+    path('', home_redirect),
     path('admin/', admin.site.urls),
     path('api/v1/', include('logistic.urls')),
 ]
