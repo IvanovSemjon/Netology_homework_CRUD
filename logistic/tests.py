@@ -39,4 +39,4 @@ class SimpleViewTest(APITestCase):
     def test_simple_view(self):
         response = self.client.get('/api/v1/simple/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['message'], 'Hello, world!')
+        self.assertEqual(response.data['message'], 'Hello, world! How are you?')
